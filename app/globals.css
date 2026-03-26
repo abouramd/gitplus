@@ -4,127 +4,433 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
-}
-
+/* ============================================================
+   CATPPUCCIN MOCHA — Raw Palette
+   ============================================================ */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  /* Base layers */
+  --ctp-base:     #1e1e2e;
+  --ctp-mantle:   #181825;
+  --ctp-crust:    #11111b;
+
+  /* Surface layers */
+  --ctp-surface0: #313244;
+  --ctp-surface1: #45475a;
+  --ctp-surface2: #585b70;
+
+  /* Overlays */
+  --ctp-overlay0: #6c7086;
+  --ctp-overlay1: #7f849c;
+  --ctp-overlay2: #9399b2;
+
+  /* Text */
+  --ctp-subtext0: #a6adc8;
+  --ctp-subtext1: #bac2de;
+  --ctp-text:     #cdd6f4;
+
+  /* Accent colors */
+  --ctp-lavender: #b4befe;
+  --ctp-blue:     #89b4fa;
+  --ctp-sapphire: #74c7ec;
+  --ctp-sky:      #89dceb;
+  --ctp-teal:     #94e2d5;
+  --ctp-green:    #a6e3a1;
+  --ctp-yellow:   #f9e2af;
+  --ctp-peach:    #fab387;
+  --ctp-maroon:   #eba0ac;
+  --ctp-red:      #f38ba8;
+  --ctp-mauve:    #cba6f7;
+  --ctp-pink:     #f5c2e7;
+  --ctp-flamingo: #f2cdcd;
+  --ctp-rosewater:#f5e0dc;
+
+  /* ============================================================
+     SEMANTIC TOKENS
+     ============================================================ */
+  --color-bg:            var(--ctp-base);
+  --color-bg-subtle:     var(--ctp-mantle);
+  --color-bg-deep:       var(--ctp-crust);
+  --color-surface:       var(--ctp-surface0);
+  --color-surface-hover: var(--ctp-surface1);
+  --color-border:        var(--ctp-surface1);
+  --color-border-focus:  var(--ctp-mauve);
+  --color-text:          var(--ctp-text);
+  --color-text-muted:    var(--ctp-subtext1);
+  --color-text-subtle:   var(--ctp-overlay1);
+  --color-accent:        var(--ctp-mauve);
+  --color-accent-hover:  var(--ctp-lavender);
+  --color-link:          var(--ctp-blue);
+  --color-success:       var(--ctp-green);
+  --color-warning:       var(--ctp-yellow);
+  --color-error:         var(--ctp-red);
+  --color-cta:           var(--ctp-peach);
+
+  /* ============================================================
+     SHADOWS
+     ============================================================ */
+  --shadow-sm:            0 1px 3px rgba(17, 17, 27, 0.4);
+  --shadow-md:            0 4px 12px rgba(17, 17, 27, 0.5);
+  --shadow-lg:            0 8px 24px rgba(17, 17, 27, 0.6);
+  --shadow-glow-mauve:    0 0 20px rgba(203, 166, 247, 0.15);
+  --shadow-glow-lavender: 0 0 20px rgba(180, 190, 254, 0.12);
+
+  /* ============================================================
+     MOTION
+     ============================================================ */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --duration-fast:   100ms;
+  --duration-base:   180ms;
+  --duration-slow:   300ms;
+  --duration-slower: 500ms;
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+
+  /* ============================================================
+     RADIUS
+     ============================================================ */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  24px;
+  --radius-full: 9999px;
+
+  /* Kept for shadcn/ui compatibility */
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* ============================================================
+     SHADCN / BASE-UI SEMANTIC TOKEN REMAPPING
+     All components using bg-primary, text-muted-foreground etc.
+     will automatically pick up Catppuccin Mocha values.
+     ============================================================ */
+  --background:            var(--ctp-base);
+  --foreground:            var(--ctp-text);
+  --card:                  var(--ctp-surface0);
+  --card-foreground:       var(--ctp-text);
+  --popover:               var(--ctp-crust);
+  --popover-foreground:    var(--ctp-text);
+  --primary:               var(--ctp-mauve);
+  --primary-foreground:    var(--ctp-base);
+  --secondary:             var(--ctp-surface1);
+  --secondary-foreground:  var(--ctp-text);
+  --muted:                 var(--ctp-surface0);
+  --muted-foreground:      var(--ctp-subtext1);
+  --accent:                var(--ctp-mauve);
+  --accent-foreground:     var(--ctp-base);
+  --destructive:           var(--ctp-red);
+  --border:                var(--ctp-surface1);
+  --input:                 var(--ctp-mantle);
+  --ring:                  var(--ctp-mauve);
+
+  /* Chart tokens — Catppuccin accent sequence */
+  --chart-1: var(--ctp-mauve);
+  --chart-2: var(--ctp-blue);
+  --chart-3: var(--ctp-teal);
+  --chart-4: var(--ctp-peach);
+  --chart-5: var(--ctp-red);
+
+  /* Sidebar */
+  --sidebar:                    var(--ctp-mantle);
+  --sidebar-foreground:         var(--ctp-text);
+  --sidebar-primary:            var(--ctp-mauve);
+  --sidebar-primary-foreground: var(--ctp-base);
+  --sidebar-accent:             var(--ctp-surface0);
+  --sidebar-accent-foreground:  var(--ctp-text);
+  --sidebar-border:             var(--ctp-surface1);
+  --sidebar-ring:               var(--ctp-mauve);
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+/* ============================================================
+   TAILWIND v4 @theme — exposes all tokens as Tailwind classes
+   e.g. bg-ctp-mauve, text-ctp-base, border-ctp-surface1
+   ============================================================ */
+@theme inline {
+  /* Pipe shadcn tokens through Tailwind */
+  --color-background:               var(--background);
+  --color-foreground:               var(--foreground);
+  --color-card:                     var(--card);
+  --color-card-foreground:          var(--card-foreground);
+  --color-popover:                  var(--popover);
+  --color-popover-foreground:       var(--popover-foreground);
+  --color-primary:                  var(--primary);
+  --color-primary-foreground:       var(--primary-foreground);
+  --color-secondary:                var(--secondary);
+  --color-secondary-foreground:     var(--secondary-foreground);
+  --color-muted:                    var(--muted);
+  --color-muted-foreground:         var(--muted-foreground);
+  --color-accent:                   var(--accent);
+  --color-accent-foreground:        var(--accent-foreground);
+  --color-destructive:              var(--destructive);
+  --color-border:                   var(--border);
+  --color-input:                    var(--input);
+  --color-ring:                     var(--ring);
+  --color-chart-1:                  var(--chart-1);
+  --color-chart-2:                  var(--chart-2);
+  --color-chart-3:                  var(--chart-3);
+  --color-chart-4:                  var(--chart-4);
+  --color-chart-5:                  var(--chart-5);
+  --color-sidebar:                  var(--sidebar);
+  --color-sidebar-foreground:       var(--sidebar-foreground);
+  --color-sidebar-primary:          var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent:           var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border:           var(--sidebar-border);
+  --color-sidebar-ring:             var(--sidebar-ring);
+
+  /* Catppuccin palette as first-class Tailwind tokens */
+  --color-ctp-base:      #1e1e2e;
+  --color-ctp-mantle:    #181825;
+  --color-ctp-crust:     #11111b;
+  --color-ctp-surface0:  #313244;
+  --color-ctp-surface1:  #45475a;
+  --color-ctp-surface2:  #585b70;
+  --color-ctp-overlay0:  #6c7086;
+  --color-ctp-overlay1:  #7f849c;
+  --color-ctp-overlay2:  #9399b2;
+  --color-ctp-subtext0:  #a6adc8;
+  --color-ctp-subtext1:  #bac2de;
+  --color-ctp-text:      #cdd6f4;
+  --color-ctp-lavender:  #b4befe;
+  --color-ctp-blue:      #89b4fa;
+  --color-ctp-sapphire:  #74c7ec;
+  --color-ctp-sky:       #89dceb;
+  --color-ctp-teal:      #94e2d5;
+  --color-ctp-green:     #a6e3a1;
+  --color-ctp-yellow:    #f9e2af;
+  --color-ctp-peach:     #fab387;
+  --color-ctp-maroon:    #eba0ac;
+  --color-ctp-red:       #f38ba8;
+  --color-ctp-mauve:     #cba6f7;
+  --color-ctp-pink:      #f5c2e7;
+  --color-ctp-flamingo:  #f2cdcd;
+  --color-ctp-rosewater: #f5e0dc;
+
+  /* Font stacks */
+  --font-sans:    var(--font-inter), system-ui, sans-serif;
+  --font-mono:    var(--font-geist-mono), "JetBrains Mono", "Fira Code", monospace;
+  --font-heading: var(--font-inter), system-ui, sans-serif;
+
+  /* Radius */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  24px;
+  --radius-3xl:  32px;
+  --radius-4xl:  40px;
+  --radius-full: 9999px;
 }
 
+/* ============================================================
+   BASE LAYER
+   ============================================================ */
 @layer base {
-  * {
+  *, *::before, *::after {
     @apply border-border outline-ring/50;
+    transition-property: color, background-color, border-color, opacity, box-shadow, transform;
+    transition-duration: var(--duration-base);
+    transition-timing-function: var(--ease-out);
   }
+
+  html {
+    background: var(--color-bg);
+    color: var(--color-text);
+    @apply font-sans;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
   }
-  html {
-    @apply font-sans;
+
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+
+  /* Links */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Focus ring — mauve glow */
+  :focus-visible {
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: 2px;
+  }
+
+  /* ============================================================
+     SCROLLBARS — Mocha-styled thin
+     ============================================================ */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--ctp-mantle);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--ctp-surface2);
+    border-radius: var(--radius-full);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--ctp-overlay0);
+  }
+
+  /* ============================================================
+     CODE BLOCKS
+     ============================================================ */
+  pre, code {
+    font-family: var(--font-mono);
+  }
+
+  pre {
+    background: var(--ctp-crust);
+    border: 1px solid var(--ctp-surface0);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    color: var(--ctp-text);
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+  }
+
+  :not(pre) > code {
+    background: rgba(49, 50, 68, 0.8);
+    color: var(--ctp-mauve);
+    border-radius: var(--radius-sm);
+    padding: 0.1em 0.35em;
+    font-size: 0.9em;
+  }
+
+  /* ============================================================
+     REDUCED MOTION
+     ============================================================ */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ============================================================
+   COMPONENT UTILITIES
+   ============================================================ */
+@layer components {
+  /* Card with Catppuccin lift */
+  .card-ctp {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 1.25rem 1.5rem;
+    transition:
+      border-color var(--duration-base) var(--ease-out),
+      box-shadow var(--duration-base) var(--ease-out),
+      transform var(--duration-slow) var(--ease-spring);
+  }
+  .card-ctp:hover {
+    border-color: var(--ctp-surface2);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  /* Primary button */
+  .btn-primary {
+    background: var(--color-accent);
+    color: var(--ctp-base);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all var(--duration-base) var(--ease-out);
+  }
+  .btn-primary:hover {
+    background: var(--color-accent-hover);
+    transform: scale(1.02);
+  }
+  .btn-primary:focus-visible {
+    box-shadow: var(--shadow-glow-mauve);
+  }
+
+  /* Input focus glow */
+  .input-ctp {
+    background: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    padding: 0.5rem 0.75rem;
+    transition:
+      border-color var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-fast) var(--ease-out);
+  }
+  .input-ctp::placeholder {
+    color: var(--ctp-overlay0);
+  }
+  .input-ctp:focus {
+    border-color: var(--color-border-focus);
+    box-shadow: var(--shadow-glow-mauve);
+    outline: none;
+  }
+
+  /* Frosted navbar */
+  .navbar-ctp {
+    background: rgba(24, 24, 37, 0.85);
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Badge variants */
+  .badge-accent {
+    background: rgba(203, 166, 247, 0.15);
+    color: var(--ctp-mauve);
+    border-radius: var(--radius-full);
+    padding: 0.2rem 0.6rem;
+    font-size: var(--text-xs);
+    font-weight: 500;
+  }
+  .badge-success {
+    background: rgba(166, 227, 161, 0.15);
+    color: var(--ctp-green);
+    border-radius: var(--radius-full);
+    padding: 0.2rem 0.6rem;
+    font-size: var(--text-xs);
+    font-weight: 500;
+  }
+  .badge-warning {
+    background: rgba(249, 226, 175, 0.15);
+    color: var(--ctp-yellow);
+    border-radius: var(--radius-full);
+    padding: 0.2rem 0.6rem;
+    font-size: var(--text-xs);
+    font-weight: 500;
+  }
+  .badge-error {
+    background: rgba(243, 139, 168, 0.15);
+    color: var(--ctp-red);
+    border-radius: var(--radius-full);
+    padding: 0.2rem 0.6rem;
+    font-size: var(--text-xs);
+    font-weight: 500;
   }
 }

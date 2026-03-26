@@ -58,8 +58,8 @@ export function UpvoteButton({
       disabled={!isSignedIn || voted || isLoading}
       className={
         voted
-          ? "bg-amber-500 hover:bg-amber-600 text-white border-amber-500"
-          : ""
+          ? "bg-ctp-mauve hover:bg-ctp-lavender text-ctp-base border-ctp-mauve shadow-[var(--shadow-glow-mauve)]"
+          : "border-ctp-surface1 text-ctp-subtext1 hover:border-ctp-mauve hover:text-ctp-mauve"
       }
       title={
         !isSignedIn

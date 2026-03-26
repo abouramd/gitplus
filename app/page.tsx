@@ -17,7 +17,8 @@ export default function HomePage() {
     <div className="container mx-auto max-w-6xl px-4 py-10">
       <div className="mb-8">
         <h1 className="text-4xl font-bold tracking-tight">
-          <span className="text-amber-500">Git</span>Pulse
+          <span className="text-ctp-mauve">Git</span>
+          <span className="text-ctp-text">Pulse</span>
         </h1>
         <p className="mt-2 text-lg text-muted-foreground">
           The open-source project leaderboard. Discover and upvote the best

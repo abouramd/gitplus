@@ -8,10 +8,14 @@ export async function Navbar() {
   const session = await auth();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="navbar-ctp sticky top-0 z-50 w-full">
       <div className="container mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-          <span className="text-amber-500">Git</span>Pulse
+        <Link
+          href="/"
+          className="flex items-center gap-2 font-bold text-lg tracking-tight"
+        >
+          <span className="text-ctp-mauve">Git</span>
+          <span className="text-ctp-text">Pulse</span>
         </Link>
 
         <nav className="flex items-center gap-3">
@@ -33,7 +37,7 @@ export async function Navbar() {
                     {session.user.name?.[0]?.toUpperCase() ?? "U"}
                   </AvatarFallback>
                 </Avatar>
-                <span className="hidden text-sm font-medium sm:inline">
+                <span className="hidden text-sm font-medium text-ctp-subtext1 sm:inline">
                   {session.user.name}
                 </span>
                 <form

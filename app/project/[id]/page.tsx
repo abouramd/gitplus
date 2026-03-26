@@ -27,13 +27,13 @@ export default async function ProjectPage({ params }: PageProps) {
     <div className="container mx-auto max-w-3xl px-4 py-10">
       <Link
         href="/"
-        className="mb-6 flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
+        className="mb-6 flex items-center gap-1.5 text-sm text-ctp-overlay1 hover:text-ctp-mauve transition-colors duration-[var(--duration-base)]"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to leaderboard
       </Link>
 
-      <div className="relative h-64 w-full overflow-hidden rounded-xl bg-muted sm:h-80">
+      <div className="relative h-64 w-full overflow-hidden rounded-xl bg-ctp-surface0 sm:h-80">
         <Image
           src={project.imageUrl}
           alt={project.name}
@@ -46,8 +46,8 @@ export default async function ProjectPage({ params }: PageProps) {
 
       <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold">{project.name}</h1>
-          <p className="mt-2 text-lg text-muted-foreground">
+          <h1 className="text-3xl font-semibold tracking-tight text-ctp-text">{project.name}</h1>
+          <p className="mt-2 text-lg text-ctp-subtext1">
             {project.description}
           </p>
         </div>
@@ -62,7 +62,7 @@ export default async function ProjectPage({ params }: PageProps) {
         </div>
       </div>
 
-      <div className="mt-6 flex flex-wrap items-center gap-4 border-t pt-6">
+      <div className="mt-6 flex flex-wrap items-center gap-4 border-t border-ctp-surface1/60 pt-6">
         <a
           href={project.githubUrl}
           target="_blank"
@@ -79,7 +79,7 @@ export default async function ProjectPage({ params }: PageProps) {
         </Badge>
       </div>
 
-      <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
+      <div className="mt-6 flex items-center gap-2 text-sm text-ctp-overlay1">
         <span>Submitted by</span>
         <Avatar className="h-6 w-6">
           <AvatarImage
@@ -90,7 +90,7 @@ export default async function ProjectPage({ params }: PageProps) {
             {project.submitterName[0]?.toUpperCase()}
           </AvatarFallback>
         </Avatar>
-        <span className="font-medium text-foreground">
+        <span className="font-medium text-ctp-text">
           {project.submitterName}
         </span>
       </div>
